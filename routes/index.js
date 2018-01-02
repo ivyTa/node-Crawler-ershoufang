@@ -21,7 +21,7 @@ router.get('/', function(req, res, next) {
     var tab=req.query.tab;
     var requestUrl=  'https://bj.lianjia.com/ershoufang/';
     if(page!=undefined){
-        requestUrl='https://bj.lianjia.com/ershoufang/?tab='+tab+'&page='+page;
+        requestUrl='https://bj.lianjia.com/ershoufang/pg'+page;
     }
     console.log("requestUrl="+requestUrl);
     var blog=new Crawler(requestUrl);
