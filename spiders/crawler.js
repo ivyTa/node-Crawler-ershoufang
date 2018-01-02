@@ -59,7 +59,7 @@ Crawler.prototype={
 
 
             res.render('list',{
-                title:'资源列表',
+                title:'二手房列表',
                 items:items
             });
         });
