@@ -3,19 +3,12 @@ block content
     h1= title
 
     div
-        ul.sync-pagination.pagination-sm
 
     each item,i in items
-        - if (item.type)
+
             h5
-                button.btn.btn-success.btn-xs [#{item.type}]
-                    span.label.label-success #{i+1}
                 a(href="#{item.link}" target="_blank" ) 　#{item.title}
-        - else
-            h5
-                button.btn.btn-info.btn-xs [未知]
-                    span.label.label-info #{i+1}
-                a(href="#{item.link}" target="_blank" ) 　#{item.title}
+                img(src="#{item.imgSrc}")
 
     ul.sync-pagination.pagination-sm
     //http://esimakin.github.io/twbs-pagination/
@@ -23,7 +16,7 @@ block content
     script.
       $(document).ready(function () {
                      $('.sync-pagination').twbsPagination({
-                         totalPages: #{items.totalPages},
+                         totalPages: 7,
                          visiblePages: 7,
                          first:'首页',
                          last:'末页',

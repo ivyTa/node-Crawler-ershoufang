@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-var cnblog=require('../spiders/cnblog');
+var Crawler=require('../spiders/crawler');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -19,12 +19,12 @@ router.get('/', function(req, res, next) {
         3、例如：127.0.0.1:3000/index，然后post了一个id=2的值，这种方式是获取客户端post过来的数据，可以通过req.body.id获取，类似于PHP的post方法；*/
     var page=req.query.page;
     var tab=req.query.tab;
-    var requestUrl=  'https://cnodejs.org/';
+    var requestUrl=  'https://bj.lianjia.com/ershoufang/';
     if(page!=undefined){
-        requestUrl='https://cnodejs.org/?tab='+tab+'&page='+page;
+        requestUrl='https://bj.lianjia.com/ershoufang/?tab='+tab+'&page='+page;
     }
     console.log("requestUrl="+requestUrl);
-    var blog=new cnblog(requestUrl);
+    var blog=new Crawler(requestUrl);
     blog.getData(res);
   //res.render('index', { title: 'Express' });
 
